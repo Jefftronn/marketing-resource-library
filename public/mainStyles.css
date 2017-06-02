@@ -2,15 +2,25 @@
  * Base structure
  */
 
+html  {
+  position: relative;
+  min-height: 100%;
+}
+
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
   box-sizing: border-box;
 /*  font-family: 'Roboto', sans-serif;*/
   padding-top: 70px;
-
-
+  padding-bottom: 70px;
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
 
 /*
  * Global add-ons
@@ -114,4 +124,25 @@ body {
 
 #submenu1 {
   padding-left: 30px;
+}
+
+/*Login Styles*/
+
+@media (min-width: 768px) {
+  #admin-signin {
+  padding: 40px 200px 0px 160px;
+  }
+}
+
+@media (min-width: 768px) {
+  #user-signin {
+  padding: 40px 200px 0px 160px;
+  }
+}
+
+/*Create Styles*/
+
+#createForm  {
+  width: 600px;
+  margin: 0 auto;
 }
