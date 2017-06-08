@@ -1,39 +1,55 @@
-angular.module('mrlApp', ['ui.router'])
+(function() {
 
-.config(function($stateProvider, $urlRouterProvider) {
+	// Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAgyr95NqrVhhK2wOQaZdYX-5GTJqPgbjg",
+    authDomain: "marketing-resource-library.firebaseapp.com",
+    databaseURL: "https://marketing-resource-library.firebaseio.com",
+    projectId: "marketing-resource-library",
+    storageBucket: "marketing-resource-library.appspot.com",
+    messagingSenderId: "51428464407"
+  };
+  firebase.initializeApp(config);
 
-	$stateProvider
+	angular.module('mrlApp', ['ui.router', 'firebase'])
 
-	.state('Welcome', {
-		url: '/welcome',
-		templateUrl: 'js/welcome/welcome.html'
-	})
+	.config(function($stateProvider, $urlRouterProvider) {
 
-	.state('Login', {
-		url: '/login',
-		templateUrl: 'js/login/login.html'
-	})
+		$stateProvider
 
-	.state('Aca', {
-		url: '/aca',
-		templateUrl: 'js/aca/aca.html'
-	})
+		.state('Welcome', {
+			url: '/welcome',
+			templateUrl: 'js/welcome/welcome.html'
+		})
 
-	.state('AdminDashboard', {
-		url: '/adminDashboard',
-		templateUrl: 'js/adminDashboard/adminDashboard.html'
-	})
+		.state('Login', {
+			url: '/login',
+			templateUrl: 'js/login/login.html',
+      controller: 'loginController'
+		})
 
-	.state('UserDashboard', {
-		url: '/userDashboard',
-		templateUrl: 'js/userDashboard/userDashboard.html'
-	})
+		.state('Aca', {
+			url: '/aca',
+			templateUrl: 'js/aca/aca.html'
+		})
 
-	.state('Create', {
-		url: '/create',
-		templateUrl: 'js/create/create.html'
-	})
+		.state('AdminDashboard', {
+			url: '/adminDashboard',
+			templateUrl: 'js/adminDashboard/adminDashboard.html'
+		})
 
-	$urlRouterProvider.otherwise('/userDashboard');
+		.state('UserDashboard', {
+			url: '/userDashboard',
+			templateUrl: 'js/userDashboard/userDashboard.html'
+		})
 
-});
+		.state('Create', {
+			url: '/create',
+			templateUrl: 'js/create/create.html'
+		})
+
+		$urlRouterProvider.otherwise('/userDashboard');
+
+	});
+
+}());
